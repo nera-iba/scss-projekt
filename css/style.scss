@@ -1,0 +1,27 @@
+@use 'partial'; /*når vi bruger @use hentes partial filen ind som module. */
+
+/*Generel styling*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    font-family: partial.$font; /*Kalder på variablen inde i partial filen*/
+    background-color: partial.$bg-color;
+
+    /*Nesting - vi indsætter "alle" elementer som har direkte relation til øverste elemnet af blokken*/
+
+        p{
+            font-size: 16px;
+            color: partial.$text-color;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6{
+            font-weight: 600;
+            color: partial.$text-color;
+        }
+}
