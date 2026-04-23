@@ -10,3 +10,26 @@ $text-color: #333;
 $footer-color: #0a1f1c; 
 $font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+/*Mixin er en måde at genbruge kode på. Man tager kode som bruges flere gange og samler det et sted*/
+@mixin flex($justify: center, $align: center){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin btn ($bg-color: $primary-color, $btn-padding: 0.8em 1em){
+    background-color: $bg-color;
+    padding: $btn-padding;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+@mixin cta-box($width: 20vw){
+    background-color: #fff;
+    width: $width;
+    padding: 2em;
+    margin: 2em auto;
+}
+

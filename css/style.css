@@ -1,14 +1,12 @@
 @charset "UTF-8";
 /*Partiel filen er en underfil til stye.scss. Underscore er nødvendig ellers opretter compileren ccs.map og .css fil*/
 /*Variabler*/
+/*Mixin er en måde at genbruge kode på. Man tager kode som bruges flere gange og samler det et sted*/
 /*når vi bruger @use hentes partial filen ind som module. */
 /*Generel styling*/
-* {
+body {
   box-sizing: border-box;
   margin: 0;
-}
-
-body {
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*Kalder på variablen inde i partial filen*/
   background-color: #f0f0f0;
@@ -22,4 +20,157 @@ body p {
 body h1, body h2, body h3, body h4, body h5, body h6 {
   font-weight: 600;
   color: #333;
+}
+
+/*Skip to main content code snippet fra:https://www.a11y-collective.com/blog/skip-to-main-content/ */
+.screen-reader-text {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  opacity: 0;
+}
+
+.screen-reader-text:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(50px, auto); /*Ved brug af minmax sikrer vi en minimumsstørrelse af vores gridelementer og ved auto sikrer vi at boksen tilpasser sig efter dens indhold*/
+}
+
+/*Navigation*/
+header {
+  grid-column: 1/6; /*grid columns start og slut på en linhe i stedet to. så start på linje 1 og slut på linje 6*/
+  background-color: #ffffff;
+  border-bottom: 4px solid #388071;
+}
+
+nav {
+  color: #333;
+  height: 4em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*Mixin er blevet kaldt og $justify er ændret*/
+}
+nav img {
+  width: 70px;
+}
+nav #bars {
+  display: none;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+nav a {
+  color: #333;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav a:hover, nav .active {
+  color: #388071;
+}
+
+/*Banner sektion*/
+.header-img {
+  grid-column: 1/6;
+  border-bottom: 4px solid #388071;
+  background-image: url(../img/computer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+  margin-bottom: 1em;
+}
+.header-img .banner-tekst {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+}
+.header-img h1 {
+  font-size: 2.3vw;
+}
+.header-img p {
+  font-size: 2vw;
+}
+.header-img a {
+  background-color: #388071;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+}
+.header-img a:hover {
+  background-color: #133833;
+  transition: 0.3s ease-in-out;
+}
+
+/*Forside styling*/
+main {
+  grid-column: 1/6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+main h2 {
+  font-size: 30px;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+main .cta-wrapper {
+  grid-column: 1/7;
+}
+main .cta-wrapper .cta-bokse {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*CTA bokse*/
+.cta-1, .cta-2, .cta-3 {
+  background-color: #fff;
+  width: 20vw;
+  padding: 2em;
+  margin: 2em auto;
+}
+.cta-1 img, .cta-2 img, .cta-3 img {
+  margin: 0 auto;
+  width: 60%;
+  display: block;
+}
+.cta-1 p, .cta-2 p, .cta-3 p {
+  margin-bottom: 2em;
+}
+.cta-1 a, .cta-2 a, .cta-3 a {
+  background-color: #388071;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  display: block; /*Display:block; gør at elementet fylder hele bredden af sin container*/
+}
+.cta-1 a:hover, .cta-2 a:hover, .cta-3 a:hover {
+  background-color: #133833;
+  transition: 0.3s ease-in-out;
 }/*# sourceMappingURL=style.css.map */
